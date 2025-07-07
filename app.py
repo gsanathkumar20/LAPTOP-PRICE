@@ -227,7 +227,7 @@ def main():
     if price_stats:
         st.markdown('<div class="warning-box">', unsafe_allow_html=True)
         st.markdown(f"""
-        *📊 Price Range in Dataset:*
+        **📊 Price Range in Dataset:**
         - Min: €{price_stats['min']:.2f}
         - Max: €{price_stats['max']:.2f}
         - Average: €{price_stats['mean']:.2f}
@@ -245,7 +245,7 @@ def main():
     
     with col1:
         st.markdown('<div class="feature-section">', unsafe_allow_html=True)
-        st.markdown("💼 Brand & Type**")
+        st.markdown("**💼 Brand & Type**")
         
         company = st.selectbox(
             "Company",
@@ -269,7 +269,7 @@ def main():
     
     with col2:
         st.markdown('<div class="feature-section">', unsafe_allow_html=True)
-        st.markdown("⚙ Hardware Specifications**")
+        st.markdown("**⚙️ Hardware Specifications**")
         
         ram = st.number_input(
             "RAM (GB)",
@@ -302,7 +302,7 @@ def main():
     
     with col3:
         st.markdown('<div class="feature-section">', unsafe_allow_html=True)
-        st.markdown("🖥 Display & Performance**")
+        st.markdown("**🖥️ Display & Performance**")
         
         cpu_brand = st.selectbox(
             "CPU Brand",
@@ -334,7 +334,7 @@ def main():
     
     with col4:
         st.markdown('<div class="feature-section">', unsafe_allow_html=True)
-        st.markdown("📱 Display Features**")
+        st.markdown("**📱 Display Features**")
         
         touchscreen = st.checkbox("Touchscreen", value=False)
         ips = st.checkbox("IPS Display", value=False)
@@ -344,16 +344,16 @@ def main():
         
         # Calculate PPI
         if inches > 0:
-            ppi = round(((x_res*2 + y_res2)*0.5 / inches), 2)
+            ppi = round(((x_res**2 + y_res**2)**0.5 / inches), 2)
         else:
             ppi = 0
-        st.write(f"*PPI (calculated): {ppi}*")
+        st.write(f"**PPI (calculated): {ppi}**")
         
         st.markdown('</div>', unsafe_allow_html=True)
     
     with col5:
         st.markdown('<div class="feature-section">', unsafe_allow_html=True)
-        st.markdown("💾 Storage**")
+        st.markdown("**💾 Storage**")
         
         hdd = st.number_input(
             "HDD (GB)",
@@ -431,16 +431,16 @@ def main():
             # Display result
             st.markdown('<div class="prediction-box">', unsafe_allow_html=True)
             st.markdown(f"### 💰 Predicted Price: €{predicted_price:.2f}")
-            st.markdown(f"*≈ ${predicted_price * 1.1:.2f} USD*")
-            st.markdown(f"*≈ ₹{predicted_price * 90:.2f} INR*")  # Approximate conversion
+            st.markdown(f"**≈ ${predicted_price * 1.1:.2f} USD**")
+            st.markdown(f"**≈ ₹{predicted_price * 90:.2f} INR**")  # Approximate conversion
             st.markdown('</div>', unsafe_allow_html=True)
             
             # Show confidence indicator
             if price_stats:
                 if predicted_price < price_stats['min']:
-                    st.warning("⚠ Predicted price is below the minimum in dataset")
+                    st.warning("⚠️ Predicted price is below the minimum in dataset")
                 elif predicted_price > price_stats['max']:
-                    st.warning("⚠ Predicted price is above the maximum in dataset")
+                    st.warning("⚠️ Predicted price is above the maximum in dataset")
                 else:
                     st.success("✅ Predicted price is within expected range")
             
@@ -448,19 +448,19 @@ def main():
             with st.expander("📋 Input Summary"):
                 col_a, col_b = st.columns(2)
                 with col_a:
-                    st.write(f"*Company:* {company}")
-                    st.write(f"*Type:* {type_name}")
-                    st.write(f"*OS:* {op_sys}")
-                    st.write(f"*RAM:* {ram} GB")
-                    st.write(f"*Screen:* {inches}\" ({x_res}x{y_res})")
-                    st.write(f"*Weight:* {weight} kg")
+                    st.write(f"**Company:** {company}")
+                    st.write(f"**Type:** {type_name}")
+                    st.write(f"**OS:** {op_sys}")
+                    st.write(f"**RAM:** {ram} GB")
+                    st.write(f"**Screen:** {inches}\" ({x_res}x{y_res})")
+                    st.write(f"**Weight:** {weight} kg")
                 
                 with col_b:
-                    st.write(f"*CPU:* {cpu_brand} @ {cpu_speed} GHz")
-                    st.write(f"*GPU:* {gpu_brand}")
-                    st.write(f"*Storage:* HDD: {hdd}GB, SSD: {ssd}GB")
-                    st.write(f"*Features:* Touchscreen: {touchscreen}, IPS: {ips}")
-                    st.write(f"*PPI:* {ppi}")
+                    st.write(f"**CPU:** {cpu_brand} @ {cpu_speed} GHz")
+                    st.write(f"**GPU:** {gpu_brand}")
+                    st.write(f"**Storage:** HDD: {hdd}GB, SSD: {ssd}GB")
+                    st.write(f"**Features:** Touchscreen: {touchscreen}, IPS: {ips}")
+                    st.write(f"**PPI:** {ppi}")
         
         except Exception as e:
             st.error(f"Error making prediction: {str(e)}")
@@ -469,7 +469,7 @@ def main():
             with st.expander("🔧 Debug Information"):
                 st.write("Input data:")
                 st.json(input_data)
-                st.write("Model type:", type(model)._name_)
+                st.write("Model type:", type(model).__name__)
                 st.write("Features shape:", features.shape if 'features' in locals() else "Not created")
                 st.write("Error details:", str(e))
     
@@ -479,8 +479,8 @@ def main():
         st.write(f"Dataset shape: {df.shape}")
         
         # Show data types
-        st.write("*Data Types:*")
+        st.write("**Data Types:**")
         st.write(df.dtypes)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
