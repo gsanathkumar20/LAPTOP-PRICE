@@ -103,20 +103,9 @@ joblib
 
 ---
 
-## 🧪 How to Run the App
+## 🧪 Link to open the App:
 
-1. Clone this repo:
-
-   ```bash
-   git clone https://github.com/your-username/laptop-price-prediction.git
-   cd laptop-price-prediction
-   ```
-
-2. Start the Streamlit app:
-
-   ```bash
-   streamlit run app.py
-   ```
+https://gsanathkumar20-laptop-price-app-msxfph.streamlit.app/
 
 ---
 
@@ -136,7 +125,7 @@ And get a predicted price in Euros instantly!
 
 ## 📚 Acknowledgements
 
-* Dataset sourced from [Kaggle Laptop Price Dataset](https://www.kaggle.com/datasets/muhammadadiltariq/laptop-price)
+* Dataset sourced from Kaggle.
 * Developed as part of an end-to-end ML project on regression modeling and deployment.
 
 ---
