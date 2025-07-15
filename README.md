@@ -1,7 +1,3 @@
-Here's a `README.md` file tailored for your **Laptop Price Prediction** project, based on the uploaded files and Streamlit app:
-
----
-
 # 💻 Laptop Price Prediction Using Machine Learning
 
 Welcome to the **Laptop Price Predictor** – a machine learning-powered web application built with **Streamlit** that estimates the price of a laptop based on user-specified features such as RAM, screen size, CPU type, GPU brand, storage, and more.
