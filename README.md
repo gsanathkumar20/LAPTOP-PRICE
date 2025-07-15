@@ -141,6 +141,6 @@ And get a predicted price in Euros instantly!
 
 ## 🧑‍💻 Author
 
-Made with 💡 by **G Sanath Kumar**
+Made with 💡 by **Sanath Kumar Guthikonda**
 
 > *Aspiring Data Scientist | Passionate about ML Deployment | Streamlit Enthusiast*
